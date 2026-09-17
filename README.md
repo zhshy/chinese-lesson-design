@@ -106,6 +106,21 @@ git clone https://github.com/zhshy/chinese-lesson-design.git
 
 重启 WorkBuddy 后生效。
 
+## 版本与更新
+
+- **版本号**遵循语义化版本，写在 [`SKILL.md`](SKILL.md) 的 frontmatter `version:` 字段；**每个版本对应一个 git 标签**（`v1.0.0` …），逐版变更见 [`CHANGELOG.md`](CHANGELOG.md)。
+- **版本号含义**：主版本＝目录结构或不兼容的输出格式改动；次版本＝新增能力（新增栏目、新增课件标准条目、新增册次）；修订版＝文字订正与口径微调。
+- **按版本安装**（可复现的取版方式）：
+
+```bash
+# 取指定版本
+git clone --branch v1.6.0 --depth 1 https://github.com/zhshy/chinese-lesson-design.git
+# 不装 git，也可直接取该版本的 tar 包
+curl -LO https://codeload.github.com/zhshy/chinese-lesson-design/tar.gz/refs/tags/v1.6.0
+```
+
+- **核对手上副本的版本**：装进 `~/.workbuddy/skills/` 的副本不带 `.git`，看 [`SKILL.md`](SKILL.md) 前几行的 `version:` 字段即为当前版本；若取的是 git 检出，用 `git -C <repo> describe --tags`。
+
 ## 什么是 Skill
 
 Skill 是给 AI 助手加载的专业知识包：一个 `SKILL.md` 定义触发条件与工作流程，`references/` 存放按需加载的细节文件。加载后助手会按既定流程工作，而不是即兴发挥。
